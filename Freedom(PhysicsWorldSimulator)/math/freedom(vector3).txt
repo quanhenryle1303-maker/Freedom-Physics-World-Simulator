@@ -1,0 +1,9 @@
+Dot: Length of v * Length of w
+Array[1 + 2] * Array[3 + 4] = Array[3 8] = Array[11]
+
+v * w > 0
+    Positive
+v * w = 0
+    Perpendicular
+v * w < 0
+    Negative
