@@ -119,8 +119,8 @@ a = Vector3(1, 2, 3)
 b = Vector3(4, 5, 6)
 
 print("--- STARTING VECTOR TESTS ---")
-print("Result of a + b:", a + b)
-print("Result of a - b:", a - b)
+print("Result of a * b:", a * b)
+print("Result of a / b:", a / b)
 print("----------------------------")
 
 # This forces the window to stay open until you press Enter
