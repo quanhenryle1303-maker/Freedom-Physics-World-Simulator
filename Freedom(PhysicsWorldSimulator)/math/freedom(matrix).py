@@ -115,33 +115,28 @@ class Matrix4:
     
     def determinant(self):
         det = 0
-
-        # Expand along the first row
-        for column in range(4):
-
-            # Create the 3x3 minor by removing row 0
-            # and the current column
+        
+        #Go Over the Matrix Column
+        for columns in range(4):
+            #Creates a 3*3 Minor List (Now EMpty Will be Added later)
             minor = []
-
+            #Ranging the columns to 3*3
             for i in range(1, 4):
+                #Rows that will be Makes THrough code and finally form a 3*3
                 row = []
-
+                #Go over the Rows
                 for j in range(4):
-                    if j != column:
+                    if j != columns: #If the Rows not Belong to the Column
+                        #Yes it's accurate to include it in Matrix 3*3 
                         row.append(self.elements[i][j])
-
+                #After Formulate all 3*3 then that will go to Minot
                 minor.append(row)
 
-            # Alternate signs: + - + -
-            sign = 1 if column % 2 == 0 else -1
-
-            det += (
-                sign *
-                self.elements[0][column] *
-                self._determinant_3x3(minor)
-            )
-
-        return det
+            sign = 1 if columns % 2 == 0 else -1 #In Determinant it iwll always like + - + - even column index = +, odd column index = -
+            
+            det += (sign * self.elements[0][columns] * self._determinant_3x3(minor)) #An Equation for 4*4 Determinant
+        
+        return det #After Done All The Matrix
     
     def inverse(self):
         det = self.determinant()
