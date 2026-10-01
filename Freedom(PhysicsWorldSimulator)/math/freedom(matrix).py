@@ -5,14 +5,14 @@ Vector3 = freedom_module.Vector3
 
 
 class Matrix4:
-    def __init__(self, element=None):
-        self.element = element
+    def __init__(self, elements=None):
+        self.elements = elements
     
     def creation(elements):
         return Matrix4(elements)
     
     @staticmethod
-    def identity():
+    def __repr__(self):
         return [
             [1, 0, 0, 0],
             [0, 1, 0, 0],
@@ -190,7 +190,7 @@ class Matrix4:
         ]
 
         return Matrix4(result)
-        
+    
     @staticmethod
     def translation(x, y, z):
         return Matrix4([
