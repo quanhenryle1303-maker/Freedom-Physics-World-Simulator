@@ -43,6 +43,44 @@ class Cube(RigidBody):
             material=self.material
         ) 
     
+    def vertices(self):
+        hw = self.width / 2
+        hh = self.height / 2
+        hd = self.depth / 2
+
+        return [
+            Vector3(-hw, -hh, -hd),
+            Vector3( hw, -hh, -hd),
+            Vector3( hw,  hh, -hd),
+            Vector3(-hw,  hh, -hd),
+            Vector3(-hw, -hh,  hd),
+            Vector3( hw, -hh,  hd),
+            Vector3( hw,  hh,  hd),
+            Vector3(-hw,  hh,  hd)
+        ]
+    
+    
+    def edges(self):
+        return [
+            # First face (z = -hd)
+            (0, 1),
+            (1, 2),
+            (2, 3),
+            (3, 0),
+
+            # Opposite face (z = +hd)
+            (4, 5),
+            (5, 6),
+            (6, 7),
+            (7, 4),
+
+            # Connect the two faces
+            (0, 4),
+            (1, 5),
+            (2, 6),
+            (3, 7)
+        ]
+    
 
 # Cube
 #
